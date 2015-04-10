@@ -20,14 +20,14 @@
 
 - (void)addEventListener:(EventDispatcher *)object forEvent:(NSString *)eventName functionBlock:(void (^)(void))callBack {
     if(!object) {
-        DLog(@"nil object passed");
+        NSLog(@"EventListner.addEventListner: nil object passed");
         return;
     }
     
     NSString *key = [self _getKeyForObject:object andEvent:eventName];
     EventBlockObject *block = [_eventBlocks valueForKey:key];
     if(block) {
-//        DLog(@"WARNING! overwriting event listener previously added for key: %@", key);
+//        NSLog(@"EventListner.addEventListner: WARNING! overwriting event listener previously added for key: %@", key);
         [self removeEventListener:block.targetObject forEvent:eventName];
         [_eventBlocks removeObjectForKey:key];
         block = nil;

@@ -10,7 +10,6 @@
 
 @interface EventBlockObject : NSObject
 
-//@property NSString *eventName;
 @property EventDispatcher *targetObject;
 @property (copy) void (^callBack)(void);
 @property (nonatomic, retain) NSString *eventName;
